@@ -1,24 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+  ChakraBaseProvider,
+  extendBaseTheme,
+  theme as chakraTheme,
+  theme,
+} from "@chakra-ui/react";
+import { Box, Center, Image, Flex, Badge, Text } from "@chakra-ui/react";
+import { MdStar } from "react-icons/md";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ChakraBaseProvider theme={theme}>
+      <div className="App">
+        <Center h="100vh">
+          <Box p="5" maxW="320px" borderWidth="1px">
+            <Image borderRadius="md" src="https://bit.ly/2k1H1t6" />
+            <Flex align="baseline" mt={2}>
+              <Badge colorScheme="pink">Plus</Badge>
+              <Text
+                ml={2}
+                textTransform="uppercase"
+                fontSize="sm"
+                fontWeight="bold"
+                color="pink.800"
+              >
+                Verified &bull; Cape Town
+              </Text>
+            </Flex>
+            <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
+              Modern, Chic Penthouse with Mountain, City & Sea Views
+            </Text>
+            <Text mt={2}>$119/night</Text>
+            <Flex mt={2} align="center">
+              <Box as={MdStar} color="orange.400" />
+              <Text ml={1} fontSize="sm">
+                <b>4.84</b> (190)
+              </Text>
+            </Flex>
+          </Box>
+        </Center>
+      </div>
+    </ChakraBaseProvider>
   );
 }
 
